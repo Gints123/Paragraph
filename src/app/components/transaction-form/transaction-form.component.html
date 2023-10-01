@@ -1,0 +1,32 @@
+<form
+  [formGroup]="transactionForm"
+  (ngSubmit)="onSubmit()"
+  class="transaction-form"
+>
+  <div class="form-row">
+    <label for="transType">Transaction Type: </label>
+    <select id="transType" formControlName="type">
+      <option
+        *ngFor="let type of transactionType | keyvalue"
+        [value]="type.key"
+      >
+        {{ type.key }}
+      </option>
+    </select>
+  </div>
+  <div class="form-row">
+    <label for="transFrom">From: </label>
+    <input id="transFrom" formControlName="from" />
+  </div>
+  <div class="form-row" *ngIf="showToField">
+    <label for="transTo">To: </label>
+    <input id="transTo" formControlName="to" />
+  </div>
+  <div class="form-row">
+    <label for="transAmount">Amount: </label>
+    <input id="transAmount" type="number" formControlName="amount" />
+  </div>
+  <div class="form-row">
+    <button type="submit" class="custom-submit">Submit</button>
+  </div>
+</form>

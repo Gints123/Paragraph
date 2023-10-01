@@ -1,0 +1,49 @@
+.paragraph-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 80%;
+  margin: 2rem auto;
+}
+
+.paragraph-container {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  max-width: 300px;
+  overflow-wrap: break-word;
+}
+
+.paragraph-text {
+  margin-bottom: 1rem;
+  word-wrap: break-word;
+}
+
+.edit-button {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+.save-button {
+  padding: 0.5rem 1rem;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+.edit-button:hover {
+  background-color: #0056b3;
+}
+
+.save-button:hover {
+  background-color: #1f8842;
+}

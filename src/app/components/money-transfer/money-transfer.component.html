@@ -1,0 +1,64 @@
+<div class="transfer-container">
+  <div class="actions-row">
+    <div class="input-group">
+      <label for="name">Name:</label>
+      <input class="person-input" type="text" id="name" [(ngModel)]="name" />
+    </div>
+    <div class="input-group">
+      <label for="amount">Amount:</label>
+      <input
+        class="person-input"
+        type="number"
+        id="amount"
+        [(ngModel)]="amount"
+      />
+    </div>
+    <div class="button-group">
+      <button class="custom-btn" (click)="addPerson()">Add Person</button>
+      <button class="custom-btn" (click)="findBiggestDebtor()">
+        Find Debtor
+      </button>
+      <button class="custom-btn" (click)="findBiggestLender()">
+        Find Lender
+      </button>
+    </div>
+  </div>
+
+  <div class="results">
+    <div *ngIf="biggestDebtor">
+      <span
+        >Biggest Debtor: {{ biggestDebtor.name }} Owes:
+        {{ biggestDebtor.amountBorrowed }}</span
+      >
+    </div>
+    <div *ngIf="biggestLender">
+      <span
+        >Biggest Lender: {{ biggestLender.name }} Lent:
+        {{ biggestLender.amountLent }}</span
+      >
+    </div>
+  </div>
+</div>
+
+<app-transaction-form
+  (transactionSubmit)="onTransactionSubmit($event)"
+></app-transaction-form>
+
+<div class="transfer-container" *ngIf="ledger.people.length > 0">
+  <table class="ledger-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Amount Borrowed</th>
+        <th>Amount Lent</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of ledger.people">
+        <td>{{ person.name }}</td>
+        <td>{{ person.amountBorrowed }}</td>
+        <td>{{ person.amountLent }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

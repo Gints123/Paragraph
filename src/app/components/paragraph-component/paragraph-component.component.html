@@ -1,0 +1,17 @@
+<div class="paragraph-wrapper">
+  <div class="paragraph-container">
+    <p
+      #paragraphText
+      class="paragraph-text"
+      [attr.contenteditable]="isEditable"
+    >
+      {{ text }}
+    </p>
+  </div>
+  <button *ngIf="!isEditable" class="edit-button" (click)="onEditClick()">
+    Edit
+  </button>
+  <button *ngIf="isEditable" class="save-button" (click)="onSaveClick()">
+    Save
+  </button>
+</div>
